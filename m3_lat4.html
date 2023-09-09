@@ -1,0 +1,44 @@
+<!DOCTYPE html> 
+<head> 
+    <title>Praktikum SIGWEB_M3_Latihan4_460245_Cheicylia G H</title>
+    <meta charset="utf-8">	
+</head> 
+
+<body> 
+    <body style="background-color: #defece;"> <!-- memberi warna pada background web --> 
+    <h1>Bilangan Prima</h1>
+    <p>Masukkan angka untuk menampilkan seluruh bilangan primanya:  </p>
+
+    Angka : <input type="text" id="angka" style="margin-left: 5px;margin-bottom:15px ;"> <br>
+
+    <button type="button" onclick="Prime()">Tampilkan</button><br/><br/> 
+
+    Hasil : <span id="hasil"></span> 
+
+    <script>
+        function Prime() { 
+            var a = document.getElementById("angka").value;
+            var hasilElement = document.getElementById("hasil"); 
+    
+            if (a >= 0) {
+                hasilElement.innerHTML = ""; // Menghapus hasil sebelumnya
+    
+                for (i = 2; i <= a; i++) {
+                    var primenum = false;
+                    for (j = 2; j < i; j++) {
+                        if (i % j == 0) primenum = true;
+                    }
+    
+                    if (!primenum) {
+                        if (i > 2) {
+                            hasilElement.innerHTML += ", ";
+                        }
+                        hasilElement.innerHTML += i;
+                    }
+                }
+            }
+        }
+    </script>
+      
+</body> 
+</html> 

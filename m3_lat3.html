@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Praktikum SIGWEB_M3_Latihan3_460245_Cheicylia G H</title>
+    <meta charset="utf-8">	
+</head>
+
+<body>
+    <body style="background-color: #defece;"> <!-- memberi warna pada background web --> 
+    <h1>Validasi Kategori Umur</h1>
+    <p>Masukkan nama dan umur Anda : </p>
+    Nama : <input type="text" id="nama" style="margin-left: 12px; margin-bottom: 12px"> <br>
+    Umur : <input type="text" id="umur" style="margin-left: 12px; margin-bottom: 12px"> <br>
+
+    <button onclick="klik()">Kirim</button>
+    <script>
+        function klik(){
+            var namae, nenrei, notif;
+            namae = document.getElementById("nama").value;
+            nenrei = document.getElementById("umur").value;
+
+            if (namae == ""  && nenrei == "")  {
+                notif = "Isikan nama dan umur Anda!";
+                alert(notif);
+            }
+
+            else if (namae == "" )  {
+                notif = "Isikan nama!";
+                alert(notif);
+            }
+
+            else if (nenrei == ""){
+                notif = "Isikan umur!";
+                alert(notif);
+            }
+
+            else if(nenrei <=0){
+                notif = "Anda Game Over!";
+                alert(notif);
+            }
+            
+            else if(nenrei > 0 && nenrei < 5){
+                notif = "Anda masih bayi";
+                alert(notif);
+            }
+
+            else if(nenrei <= 15){
+                notif = "Anda masih anak-anak";
+                alert(notif);
+            }
+
+            else if(nenrei <= 30){
+                notif = "Anda masih remaja";
+                alert(notif);
+            }
+
+            else if(nenrei <=60){
+                notif = "Anda sudah dewasa";
+                alert(notif);
+            }
+
+            else{
+                notif = "Anda sudah lansia";
+                alert(notif);
+            }
+
+        }
+    </script>
+</body>
+</html>

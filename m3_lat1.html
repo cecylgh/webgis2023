@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Praktikum SIGWEB_M3_Latihan1_460245_Cheicylia G H</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <body style="background-color: #B2FFFF;"> <!-- memberi warna pada background web --> 
+    <h1 style="color:rgb(11, 11, 158);">Hitung Faktorial dari Input</h1>
+    <p style="color:rgb(0, 0, 54);font-weight:bold ;">Masukkan sembarang angka:</p>
+
+    <!--membuat bagian untuk diisi pengguna-->
+    <div id="bagianinput" style="float: left;">
+        <input type="text" id="angka">
+    </div>
+    
+    <!--membuat tombol-->
+    <div id="click" style="float:left; margin-left: 12px;">
+    <button onclick="faktorial()"> Click </button>
+    </div>
+
+    <br>
+    <p id="hasil"></p>
+
+    <script>
+        function faktorial(){
+            var a, input, x;
+            x = 1;
+            input = parseInt(document.getElementById("angka").value);
+            for(a = 1; a <= input; a++) {
+                x = x * a;
+            }   
+            document.getElementById("hasil").innerHTML =
+            "Angka faktorial dari " + input +
+            " adalah: " + x ;
+        }
+    </script>
+</body>
+</html>

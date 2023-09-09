@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Praktikum SIGWEB_M3_Latihan5_460245_Cheicylia G H</title>
+  <meta charset="utf-8">	
+<head>
+
+<body>
+  <body style="background-color: #defece;"> <!-- memberi warna pada background web --> 
+  <h2>Bilangan Fibonacci</h2>
+  <p>Masukkan angka untuk menampilkan seluruh bilangan fibonaccinya:</p>
+  <input type="text" id="angka" />
+
+  <button type="button" onclick="Fbc(angka.value)">Tampilkan</button><br/><br/> 
+  Hasil : <span id="hasil"></span>
+
+    <script>
+      var Fbc = function (x)  
+      {
+        if (x==1) {
+        var loop = [0, 1];
+        return loop;
+        document.getElementById("hasil").innerHTML = loop.join(", ");
+        } 
+
+        else {
+        var a = Fbc(x - 1);
+        a.push(a[a.length - 1] + a[a.length - 2]);
+        document.getElementById("hasil").innerHTML = a.join(", ");
+        return a;
+        }
+      };
+    </script>
+</body>
+</html>

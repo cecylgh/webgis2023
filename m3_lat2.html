@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Praktikum SIGWEB_M3_Latihan2_460245_Cheicylia G H</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <body style="background-color: #B2FFFF;"> <!-- memberi warna pada background web --> 
+    <h1 style="color:rgb(0, 0, 113);">Validasi Input</h1>
+    <p>Masukkan nama, password, dan alamat email anda : </p>
+    Nama     : <input type="text" id="nama" style="margin-left: 33px; margin-bottom: 10px;"> <br>
+    Password : <input type="password" id="password" style="margin-left: 10px; margin-bottom: 10px"> <br>
+    E-mail: <input type="email" id="email" style="margin-left: 32px; margin-bottom: 10px"> <br>
+
+    <button onclick="klik()">Klik</button>
+
+    <script>
+        function klik(){
+            var pw, cek, notif;
+            var cek = "sss";
+            pw = document.getElementById("password").value;
+
+            if (pw === cek) {
+                notif = "Password benar!";
+                alert(notif);
+            }
+
+            else{
+                notif = "Password salah!";
+                alert(notif);
+            }
+        }
+    </script>
+
+    <p><i>Note: untuk mencoba password yang benar adalah sss </i></p>
+</body>
+</html>

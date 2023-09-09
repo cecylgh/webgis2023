@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Lanjutan About NTU Singapore</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* 
+{
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+}
+
+/* Style the header */
+header {
+  background-image: url('https://www.ntu.edu.sg/images/default-source/cco-images/hive-banner6a71a5f2-0107-4855-937d-05d10a7bfd93.jpg?sfvrsn=3ed0cba3_3');
+  padding: 90px;
+  text-align: center;
+  font-size: 35px;
+  color: rgb(255, 255, 255);
+}
+
+/* Buat dua kolom/kotak yang mengapung bersebelahan */
+nav {
+  float: left;
+  width: 30%;
+  height: 600px; /* only for demonstration, should be removed */
+  background: rgb(230, 230, 230);
+  padding: 20px;
+}
+
+/* Gaya daftar di dalam menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+article {
+  float: left;
+  padding: 20px;
+  width: 70%;
+  background-color: rgb(24, 28, 98);
+  height: 600px; 
+}
+
+/* Hapus float setelah kolom */
+section::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Memberi gaya pada footer */
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-content p {
+  margin: 0;
+}
+
+footer {
+  background-color: rgb(215, 20, 64);
+  padding: 20px;
+  text-align: center;
+}
+
+/* Tata letak responsif - membuat dua kolom/kotak bertumpuk satu sama lain, bukan bersebelahan, pada layar kecil */
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}
+</style>
+</head>
+<body>
+
+
+<header>
+  <h2>Nanyang Technological University Singapore</h2>
+</header>
+
+<section>
+  <nav>
+    <ul>
+      <li><a href="https://cecylgh.github.io/sigweb2023/latihan2.html">About NTU Singapore</a></li>
+      <li><a href="https://cecylgh.github.io/sigweb2023/latihan2_vision.html">Vision and Mission</a></li>
+      <li><a href="https://cecylgh.github.io/sigweb2023/latihan2_diversity.html">Diversity and Inclusion at NTU</a></li>
+      <li><a href="https://cecylgh.github.io/sigweb2023/latihan2_one.html">OneNTU Core Values</a></li>
+    </ul>
+  </nav>
+  
+  <article>
+    <h1>Vision and Mission</h1>
+    <p>A great global university founded on science and technology, nurturing leaders and creating societal impact through interdisciplinary education and research.</p>
+  </article>
+</section>
+
+<footer>
+  <p>Copyright @cheicyliagh - 20/460245/TK/50834</p>
+    <a href="default.asp">
+<img src="https://www.ntu.edu.sg/images/default-source/corporate/ntu_logo.png?sfvrsn=b5dd1d82_5" alt="NTU logo" style="width:100px;height:40px;">
+</a>
+</footer>
+
+</body>
+</html>
+
