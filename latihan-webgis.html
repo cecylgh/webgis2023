@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Peta Daftar Titik</title>
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <script src="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js"></script>
+  <link href="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css" rel="stylesheet" />
+  <style>
+    body { margin: 0; padding: 0; }
+    #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <script>
+      // Daftar Titik. Anda bisa menambahkan marker baru di sini
+      var markers = [
+          {
+              "lat": -6.954619,
+              "lng": 112.49871,  
+              "keterangan": "MIM 03 Doudo" 
+          },
+          {
+              "lat": -6.98846,
+              "lng": 112.56513, 
+              "keterangan": "SMP N 1 Sidayu" 
+          },  
+          {
+              "lat": -7.16812,
+              "lng": 112.65273, 
+              "keterangan": "SMAN 1 Gresik"
+          },
+          {
+              "lat": -7.7635368,
+              "lng": 110.3772089, 
+              "keterangan": "Asrama UGM Ratnaningsih Kinanti"
+          },
+          {
+              "lat": -7.7641534,
+              "lng": 110.3736469, 
+              "keterangan": "Sekolah Pascasarjana UGM"
+          },
+          {
+              "lat": -7.76374,
+              "lng": 110.372936, 
+              "keterangan": "Teknik Geodesi UGM"
+          },
+          {
+              "lat": -7.495063,
+              "lng": 110.381643,  
+              "keterangan": "Bukit Ketep"
+          },
+          {
+              "lat": -7.749577,
+              "lng": 110.369599, 
+              "keterangan": "Monumen Yogya Kembali"
+          },
+      ];  
+
+      // Fungsi untuk menambahkan marker ke map
+      function addMarker(marker) {
+          new maplibregl.Marker()
+              .setLngLat([marker.lng, marker.lat])
+              .setPopup(new maplibregl.Popup({ offset: 25 }) // add popups
+                  .setHTML('<h3>' + marker.keterangan + '</h3>'))
+              .addTo(map);
+      };
+
+      // Deklarasi map
+      var map = new maplibregl.Map({
+          container: 'map',
+          style: 'https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json',
+          center: [112.56513, -6.98846],
+          zoom: 8
+      });
+
+      // Tambahkan marker ke map
+      markers.forEach(marker => addMarker(marker));
+
+      // Zoom ke semua marker
+      const bounds = new maplibregl.LngLatBounds();
+      markers.map(marker => bounds.extend([marker.lng, marker.lat]))
+      map.fitBounds(bounds, {
+        padding: 100
+      });
+  </script>
+</body>
+</html>
