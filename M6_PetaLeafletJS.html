@@ -1,0 +1,177 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <title>PETA SEBARAN FASILITAS PENDIDIKAN DI DIY</title> 
+        <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css
+        " rel="stylesheet" integrity="sha384-
+        1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+        crossorigin="anonymous">
+        <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.mi
+        n.js" integrity="sha384-
+        ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+        <style> 
+        h3 {
+        border: 7px solid rgb(163, 40, 122);
+        text-align: center;
+        width: 1500px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-right: 0px;
+        margin-left: 0px;
+        background-color: rgb(163, 40, 122);
+        }
+        html, body, section
+        {
+        position: relative;
+        height: 100%;
+        background-color: #d9e5f1;
+        }
+        html   {scroll-behavior: smooth;}
+        #map {
+        width: 1500px;
+        height: 600px;
+        margin-left: 0px;
+        }
+
+        body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+        body {font-size:16px;}
+        .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+        .w3-half img:hover{opacity:1}
+        
+        #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 200%;
+        }
+        </style> 
+    </head> 
+    <body> 
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" style="margin-left: 20px;" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0 ml-auto mr-3"> <!-- Gunakan ml-auto untuk menggeser ke kanan -->
+                    <button class="btn btn-outline-success my-2 my-sm-0">
+                        Lokasi saya
+                    </button>
+                </form>
+            </div>
+        </nav>
+                
+        <h3 style="color:rgb(255, 255, 255);"><b>PETA PERSEBARAN FASILITAS PENDIDIKAN DI PROVINSI DAERAH ISTIMEWA YOGYAKARTA</b></h3>
+        <div id="map"></div>
+        <script src="jogja.js"></script>
+        <script>
+        var highSchoolIcon = L.icon({
+            iconUrl: 'https://cdn-icons-png.flaticon.com/512/4888/4888490.png',
+            iconSize:     [37, 37], // size of the icon
+            iconAnchor:   [20, 40], // point of the icon which will correspond to marker's location
+            popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
+        });
+        var univIcon = L.icon({
+            iconUrl: 'https://cdn-icons-png.flaticon.com/512/5526/5526527.png',
+            iconSize:     [37, 37], // size of the icon
+            iconAnchor:   [20, 40], // point of the icon which will correspond to marker's location
+            popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
+        });
+        var uny   = L.marker([-7.7737395, 110.3862511], {icon: univIcon}).bindPopup('Universitas Negeri Yogyakarta'),
+            ugm   = L.marker([-7.7713847, 110.3774998], {icon: univIcon}).bindPopup('Universitas Gadjah Mada'),
+            sadar = L.marker([-7.7762889, 110.3856877], {icon: univIcon}).bindPopup('Universitas Sanata Dharma'),
+            uajy  = L.marker([-7.7812395, 110.4193591], {icon: univIcon}).bindPopup('Universitas Atma Jaya'),
+            uii   = L.marker([-7.6875685, 110.412852], {icon: univIcon}).bindPopup('Universitas Islam Indonesia'),
+            uin   = L.marker([-7.7847839, 110.391784], {icon: univIcon}).bindPopup('UIN Sunan Kalijaga'),
+            isi   = L.marker([-7.8517052, 110.3516778], {icon: univIcon}).bindPopup('Institut Seni Indonesia'),
+            uad   = L.marker([-7.8203717, 110.3852283], {icon: univIcon}).bindPopup('Universitas Ahmad Dahlan'),
+            ust   = L.marker([-7.8084924, 110.3791213], {icon: univIcon}).bindPopup('Universitas Sarjanawiyata Tamansiswa');            
+        var univ  = L.layerGroup([uny, ugm, sadar, uajy, uii, uin, isi, uad, ust]);
+        var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap'
+        });
+
+        var osmHOT = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap contributors, Tiles style by Humanitarian OpenStreetMap Team hosted by OpenStreetMap France'});
+
+        var map = L.map('map', {
+            center: [-7.79, 110.36],
+            zoom: 10,
+            layers: [osm, univ]
+        });
+
+        var baseMaps = {
+            "OpenStreetMap": osm,
+            "OpenStreetMap.HOT": osmHOT
+        };
+
+        var overlayMaps = {
+            "Universitas": univ
+        };
+        L.geoJSON(jogjageojson,{
+        style: function(feature) {
+        switch (feature.properties.KABUPATEN) {
+        case 'Gunung Kidul': return {color: "#ff9900"};
+        case 'Sleman': return {color: "red"};
+        case 'Bantul': return {color: "blue"};
+        case 'Yogyakarta': return {color: "green"};
+        case 'Kulon Progo': return {color: "magenta"};
+        }
+        },
+        onEachFeature: function (feature, layer) {
+        layer.bindPopup(
+        'Kecamatan ' +
+        '<strong>' +
+        feature.properties.KECAMATAN +
+        '</strong>'
+        );
+        }
+        }).addTo(map);
+        var layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
+        var baseMaps = {
+            "OpenStreetMap": osm,
+            "<span style='color: red'>OpenStreetMap.HOT</span>": osmHOT
+        };
+        var sma1        = L.marker([-7.7997467, 110.3500231], {icon: highSchoolIcon}).bindPopup('SMA Negeri 1 Teladan Yogyakarta'),
+            sma2        = L.marker([-7.7781475, 110.3510142], {icon: highSchoolIcon}).bindPopup('SMA Negeri 2 Yogyakarta'),
+            sma3        = L.marker([-7.7865276, 110.371041], {icon: highSchoolIcon}).bindPopup('SMA Negeri 3 Yogyakarta'),
+            sma4        = L.marker([-7.7720215, 110.360004], {icon: highSchoolIcon}).bindPopup('SMA Negeri 4 Yogyakarta'),
+            sma5        = L.marker([-7.8224874, 110.3967965], {icon: highSchoolIcon}).bindPopup('SMA Negeri 5 Puspanegara');
+            
+        var highSchool = L.layerGroup([sma1, sma2, sma3, sma4, sma5]);
+        var openTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: 'Map data: © OpenStreetMap contributors, SRTM | Map style: © OpenTopoMap (CC-BY-SA)'
+        });
+
+        layerControl.addBaseLayer(openTopoMap, "OpenTopoMap");
+        layerControl.addOverlay(highSchool, "Sekolah Menengah Atas");
+       // Fungsi untuk menampilkan lokasi pengguna saat tombol "Lokasi saya" ditekan
+function showMyLocation() {
+    map.locate({ setView: true, maxZoom: 16 });
+}
+
+// Tambahkan event listener ke tombol "Lokasi saya"
+document.querySelector(".btn-outline-success").addEventListener("click", showMyLocation);
+
+       </script> 
+    </body> 
+</html>
